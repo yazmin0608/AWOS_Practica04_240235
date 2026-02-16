@@ -30,20 +30,14 @@ passport.use(new GitHubStrategy({
   return done(null, profile);
 }));
 
+// Estrategia LinkedIn
 passport.use(new LinkedInStrategy({
   clientID: process.env.LINKEDIN_CLIENT_ID,
   clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
   callbackURL: `${process.env.CALLBACK_URL}/linkedin/callback`,
   scope: ['openid', 'profile', 'email'],
-  userProfileURL: "https://api.linkedin.com/v2/userinfo",
-  state: true
 }, (accessToken, refreshToken, profile, done) => {
-  try {
-    return done(null, profile);
-  } catch (error) {
-    console.error('Error en LinkedIn auth:', error);
-    return done(error, null);
-  }
+  return done(null, profile);
 }));
 
 // Estrategia Twitter (OAuth 2.0)
@@ -83,10 +77,10 @@ router.get('/github/callback',
   (req, res) => { res.redirect('/profile'); }
 );
 
-router.get('/linkedin', passport.authenticate('linkedin'));
-router.get('/linkedin/callback',
-  passport.authenticate('linkedin', { failureRedirect: '/' }),
-  (req, res) => { res.redirect('/profile'); }
+router.get('/auth/linkedin', passport.authenticate('linkedin'));
+router.get('/auth/linkedin/callback',
+    passport.authenticate('linkedin', { failureRedirect: '/' }),
+    (req, res) => { res.redirect('/profile'); }
 );
 
 router.get('/twitter', passport.authenticate('twitter'));
