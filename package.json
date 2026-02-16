@@ -1,0 +1,44 @@
+{
+  "name": "awos_practica04_240235",
+  "version": "1.0.0",
+  "description": "En esta práctica aprenderé a implementar un sistema de autenticación robusto y moderno utilizando el estándar **OAuth 2.0**. Los objetivos principales son:\r * **Configuración de APIs:** Aprender el proceso de registro y obtención de credenciales en plataformas como GitHub, Facebook, Discord, X y LinkedIn.\r * **Middleware de Seguridad:** Implementar **Passport.js** para gestionar el flujo de autenticación y **Express-session** para mantener la persistencia del usuario.\r * **Diseño Moderno:** Utilizar **Tailwind CSS 4.x** para crear interfaces responsivas y de alto rendimiento.\r * **Consumo de Datos:** Extraer y mostrar información personalizada desde las APIs de redes sociales (nombres, imágenes de perfil y contenido exclusivo).",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build:css": "tailwindcss -i ./src/input.css -o ./public/css/output.css",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./public/css/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yazmin0608/AWOS_Practica04_240235.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+  "url": "https://github.com/yazmin0608/AWOS_Practica04_240235/issues"
+  },
+  "homepage": "https://github.com/yazmin0608/AWOS_Practica04_240235#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "passport": "^0.7.0",
+    "passport-discord": "^0.1.4",
+    "passport-facebook": "^3.0.0",
+    "passport-github2": "^0.1.12",
+    "passport-linkedin-oauth2": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "nodemon": "^3.1.11",
+    "tailwindcss": "^4.0.0"
+  }
+}
