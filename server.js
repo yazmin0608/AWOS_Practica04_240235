@@ -6,6 +6,8 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import authRoutes from './routes/auth.js';
+
 // Configuración de variables de entorno
 dotenv.config();
 
@@ -29,7 +31,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'secreto_super_seguro',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false } 
+  cookie: { secure: false }
 }));
 
 // Inicializar Passport
@@ -37,6 +39,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // --- RUTAS BÁSICAS ---
+app.use('/auth', authRoutes);
 app.get('/', (req, res) => {
   // Pasamos el usuario para saber si mostrar el login o el perfil
   res.render('index', { user: req.user || null });
@@ -50,11 +53,11 @@ app.get('/profile', (req, res) => {
 });
 
 // Ruta para cerrar sesión
-app.get('/logout', (req, res) => {
-    req.logout((err) => {
-        if (err) return next(err);
-        res.redirect('/');
-    });
+app.get('/logout', (req, res, next) => {
+  req.logout((err) => {
+    if (err) return next(err);
+    res.redirect('/');
+  });
 });
 
 app.listen(PORT, () => {
