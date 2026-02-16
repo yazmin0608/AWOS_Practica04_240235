@@ -11,8 +11,8 @@ En esta práctica aprenderé a implementar un sistema de autenticación robusto 
 ### 📈 Estatus de las Fases
 | Fase | Nombre de la Fase | Estatus |
 |---|---|---|
-| 1 | Configuración Inicial y Dependencias | ⏳ En proceso |
-| 2 | Diseño Atómico con Tailwind CSS 4 | ❌ Sin iniciar |
+| 1 | Configuración Inicial y Dependencias | ✅ Terminado |
+| 2 | Diseño Atómico con Tailwind CSS 4 | ⏳ En proceso |
 | 3 | Configuración del Servidor Express | ❌ Sin iniciar |
 | 4 | Configuración de API Keys Gratuitas | ❌ Sin iniciar |
 | 5 | Implementación de Passport y Estrategias OAuth | ❌ Sin iniciar |
