@@ -13,8 +13,8 @@ En esta práctica aprenderé a implementar un sistema de autenticación robusto 
 |---|---|---|
 | 1 | Configuración Inicial y Dependencias | ✅ Terminado |
 | 2 | Diseño Atómico con Tailwind CSS 4 | ✅ Terminado |
-| 3 | Configuración del Servidor Express | ⏳ En proceso |
-| 4 | Configuración de API Keys Gratuitas | ❌ Sin iniciar |
+| 3 | Configuración del Servidor Express | ✅ Terminado |
+| 4 | Configuración de API Keys Gratuitas | ⏳ En proceso |
 | 5 | Implementación de Passport y Estrategias OAuth | ❌ Sin iniciar |
 | 6 | Creación de Vistas con Tailwind CSS | ❌ Sin iniciar |
 | 7 | Página de Perfil y Consumo de API | ❌ Sin iniciar |
