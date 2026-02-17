@@ -49,7 +49,8 @@ passport.use(new TwitterStrategy({
   clientID: process.env.TWITTER_API_KEY,
   clientSecret: process.env.TWITTER_API_SECRET,
   clientType: 'confidential',
-  callbackURL: 'http://127.0.0.1:3000/auth/twitter/callback'
+  callbackURL: 'http://127.0.0.1:3000/auth/twitter/callback',
+  scope: ['users.read', 'tweet.read', 'offline.access'],
 }, (accessToken, refreshToken, profile, done) => {
   return done(null, profile);
 }));
