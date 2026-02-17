@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { Strategy as FacebookStrategy } from 'passport-facebook';
 import { Strategy as GitHubStrategy } from 'passport-github2';
-import { Strategy as LinkedInStrategy } from 'passport-linkedin-oauth2';
+import { Strategy as OpenIDConnectStrategy } from 'passport-openidconnect';
 import { Strategy as DiscordStrategy } from 'passport-discord';
 // Nota: Si no tienes instalada la de twitter de superface, usa la normal de passport-twitter
 import { Strategy as TwitterStrategy } from '@superfaceai/passport-twitter-oauth2';
@@ -30,13 +30,17 @@ passport.use(new GitHubStrategy({
   return done(null, profile);
 }));
 
-// Estrategia LinkedIn
-passport.use(new LinkedInStrategy({
+// Estrategia LinkedIn con OpenID Connect
+passport.use('linkedin', new OpenIDConnectStrategy({
+  issuer: 'https://www.linkedin.com/oauth',
+  authorizationURL: 'https://www.linkedin.com/oauth/v2/authorization',
+  tokenURL: 'https://www.linkedin.com/oauth/v2/accessToken',
+  userInfoURL: 'https://api.linkedin.com/v2/userinfo',
   clientID: process.env.LINKEDIN_CLIENT_ID,
   clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
   callbackURL: `${process.env.CALLBACK_URL}/linkedin/callback`,
-  scope: ['openid', 'profile', 'email'],
-}, (accessToken, refreshToken, profile, done) => {
+  scope: ['openid', 'profile', 'email']
+}, (issuer, profile, done) => {
   return done(null, profile);
 }));
 
@@ -77,10 +81,10 @@ router.get('/github/callback',
   (req, res) => { res.redirect('/profile'); }
 );
 
-router.get('/auth/linkedin', passport.authenticate('linkedin'));
-router.get('/auth/linkedin/callback',
-    passport.authenticate('linkedin', { failureRedirect: '/' }),
-    (req, res) => { res.redirect('/profile'); }
+router.get('/linkedin', passport.authenticate('linkedin'));
+router.get('/linkedin/callback',
+  passport.authenticate('linkedin', { failureRedirect: '/' }),
+  (req, res) => { res.redirect('/profile'); }
 );
 
 router.get('/twitter', passport.authenticate('twitter'));
