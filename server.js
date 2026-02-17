@@ -1,15 +1,16 @@
 import express from 'express';
 import session from 'express-session';
 import passport from 'passport';
-import cors from 'cors';
+// 1. PRIMERO importamos y configuramos dotenv
 import dotenv from 'dotenv';
+dotenv.config();
+import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import authRoutes from './routes/auth.js';
 
-// Configuración de variables de entorno
-dotenv.config();
+// 2. DESPUÉS importamos las rutas que dependen de esas variables
+import authRoutes from './routes/auth.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
