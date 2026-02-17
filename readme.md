@@ -18,4 +18,4 @@ En esta práctica aprenderé a implementar un sistema de autenticación robusto 
 | 5 | Implementación de Passport y Estrategias OAuth | ✅ Terminado |
 | 6 | Creación de Vistas con Tailwind CSS | ✅ Terminado |
 | 7 | Página de Perfil y Consumo de API | ✅ Terminado |
-| 8 | Pruebas, Despliegue y Documentación | ⏳ En proceso |
+| 8 | Pruebas, Despliegue y Documentación | ✅ Terminado |
